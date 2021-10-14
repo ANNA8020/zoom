@@ -20,6 +20,9 @@ import express from "express";
          done();
          socket.to(roomName).emit("welcome");
      });
+     io.on("offer", (offer, roomName) => {
+         socket.to(roomName).emit("offer", offer);
+     })
  });
  
  const handleListen = () => console.log(`Listening on http://localhost:3000`);
