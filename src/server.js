@@ -25,6 +25,10 @@ import express from "express";
      socket.on("answer", (answer, roomName) => {
          socket.to(roomName).emit("answer", answer);
      });
+     socket.on("ice", (ice, roomName) => {
+         socket.to(roomName).emit("ice", ice);
+        // iceCandidate를 주고 받고 티키타카 한다고
+     });
  });
  
  const handleListen = () => console.log(`Listening on http://localhost:3000`);
